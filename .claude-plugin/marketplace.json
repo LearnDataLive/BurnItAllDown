@@ -9,7 +9,7 @@
     {
       "name": "burn-it-all-down",
       "source": "./",
-      "description": "Adversarial \"anarchist\" reviewer — turns fixed constraints into asymmetric leverage, red-teams your own plan, and runs an anti-sycophancy check.",
+      "description": "Adversarial \"anarchist\" reviewer: turns fixed constraints into asymmetric leverage, red-teams your own plan, and runs an anti-sycophancy check.",
       "version": "0.1.0",
       "category": "review",
       "tags": ["adversarial-review", "red-team", "plan-review"]
