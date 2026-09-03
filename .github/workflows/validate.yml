@@ -10,9 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # @anthropic-ai/claude-code requires Node >=22; on Node 20 npm silently
+      # installs an older compatible CLI version with a directory-validation bug.
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
       - name: Install Claude Code CLI
         run: npm install -g @anthropic-ai/claude-code
