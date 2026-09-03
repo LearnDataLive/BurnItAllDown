@@ -1,0 +1,22 @@
+{
+  "name": "burn-it-all-down",
+  "displayName": "Burn It All Down",
+  "version": "0.1.0",
+  "description": "Adversarial \"anarchist\" reviewer for Claude Code — turns fixed constraints into asymmetric leverage, red-teams your own plan, and runs an anti-sycophancy check.",
+  "author": {
+    "name": "LearnDataLive",
+    "url": "https://github.com/LearnDataLive"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/LearnDataLive/burn-it-all-down",
+  "repository": "https://github.com/LearnDataLive/burn-it-all-down",
+  "keywords": [
+    "adversarial-review",
+    "claude-code-plugin",
+    "red-team",
+    "devils-advocate",
+    "plan-review",
+    "constraint-challenging",
+    "anti-sycophancy"
+  ]
+}
