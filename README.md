@@ -49,7 +49,7 @@ Most adversarial-review tooling for Claude Code is framed as defense: find flaws
 A single Claude Code plugin with no MCP server, no cloud dependency, and no provider routing: pure Markdown, tool-agnostic within Claude Code.
 - **One subagent** (`agents/burn-it-all-down.md`): read-only (`Read`, `Grep`, `Glob` only), an isolated-context adversarial reviewer.
 - **One skill** (`skills/burn-it-all-down/SKILL.md`): the user-invocable `/burn-it-all-down` wrapper (`context: fork`) that runs the subagent.
-- **Eval suite** (`evals/`): five realistic constrained plans with graded pass criteria, in the native `claude plugin eval` format.
+- **Eval suite** (`evals/`): eight realistic plan-review scenarios with graded pass criteria (including a multi-file plan, a near-zero-constraint plan, and a plan with embedded prompt injection), in the native `claude plugin eval` format.
 
 ## License
 

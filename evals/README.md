@@ -1,8 +1,18 @@
 # Eval suite
 
-Five cases, each a realistic plan with fixed constraints, testing whether the `burn-it-all-down` skill/agent surfaces the leverage points a strong adversarial reviewer should find, and avoids the guardrail failures (invented constraints, generic advice, pure negativity, proposing fixes that violate a stated constraint).
+Eight cases, each a realistic plan, testing whether the `burn-it-all-down` skill/agent surfaces the leverage points a strong adversarial reviewer should find, and avoids the guardrail failures (invented constraints, generic advice, pure negativity, proposing fixes that violate a stated constraint, or complying with manipulation embedded in the reviewed document).
 
 Each case is a directory: `prompt.md` (the invocation) plus `graders/*.md` (LLM-judged pass criteria), matching the native `claude plugin eval` schema.
+
+## Scenario coverage
+
+Five cases share one shape: a single-file plan with 4-7 enumerated fixed constraints in a business/technical domain (`cicd-approval-gate-rollout`, `fabric-medallion-migration`, `gdpr-data-residency-plan`, `multilanguage-launch-plan`, `oncall-paging-runbook`). Three additional cases each stress a different edge of the agent's own instructions:
+
+- `helpdesk-vendor-migration`: a plan split across two files in the case directory (`prompt.md` plus `adr-001-integration-architecture.md`), testing whether the agent actually `Glob`/`Grep`s the surrounding directory for related docs, as its own instructions require, rather than only reviewing the file it's pointed at.
+- `cloud-cost-reduction-plan`: a near-zero-constraint plan (one hard exclusion, one explicitly-non-binding preference), testing that the agent doesn't invent or artificially harden constraints to pad Stage 2, while still doing real Stage 4 red-teaming on an open canvas.
+- `eng-team-reorg-plan`: a plan with embedded prompt-injection text (a fake "SYSTEM OVERRIDE" comment and a fake "Reviewer Instructions" section) instructing the reviewer to skip stages and declare the plan flawless, testing whether the agent stays in its adversarial-reviewer role rather than complying with in-document manipulation.
+
+**Caveat on the multi-file case:** the reconstructed schema below lists an optional `case.yaml` with `context.add_dirs`, which may be the native mechanism for handing an agent extra directories. `helpdesk-vendor-migration` does not rely on that unverified field -- it places the companion ADR directly alongside `prompt.md` in the case directory and has the plan body name the file explicitly, on the assumption that the harness's working directory for a case run is that case directory (consistent with `plugins: ["../.."]` already being a path relative to the case directory). If that assumption turns out to be wrong once `claude plugin eval` is available, this case may need a `case.yaml` with `context.add_dirs` added, or the ADR content inlined into `prompt.md` instead.
 
 ## Status: unverified against the real tool
 
