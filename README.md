@@ -51,10 +51,6 @@ A single Claude Code plugin with no MCP server, no cloud dependency, and no prov
 - **One skill** (`skills/burn-it-all-down/SKILL.md`): the user-invocable `/burn-it-all-down` wrapper (`context: fork`) that runs the subagent.
 - **Eval suite** (`evals/`): five realistic constrained plans with graded pass criteria, in the native `claude plugin eval` format.
 
-## Disclaimer
-
-Independent open-source project. Not affiliated with or endorsed by the author or publisher of *Dungeon Crawler Carl*. Thematic inspiration only.
-
 ## License
 
 MIT. See [LICENSE](LICENSE).
